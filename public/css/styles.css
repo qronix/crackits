@@ -63,7 +63,7 @@
     letter-spacing: 2px;
     text-shadow: 1px 1px 4px rgb(0, 0, 0);
     user-select: none;
-    transition: all 0.8s;
+    transition: background-color 0.8s;
 }
 #hero-cta-button:hover{
     color:black;

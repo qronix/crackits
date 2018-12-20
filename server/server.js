@@ -14,7 +14,7 @@ const registerRouter = require('./routes/register');
 const loginRouter    = require('./routes/login');
 const indexRouter    = require('./routes/index');
 
-const partialsDir    = './partials';
+const partialsDir    = __dirname+'/partials';
 
 hbs.registerPartials(partialsDir);
 
