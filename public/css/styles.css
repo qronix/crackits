@@ -11,5 +11,66 @@
 #landing-canvas{
     background-color: black;
     color: white;
+    /* filter: blur(20); */
 }
+#overlay-panel{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: black;
+    opacity: 0.6;
+}
+#hero-content{
+    position: absolute;
+    margin: 0 auto;
+    top: 30vh;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 40vh;
+    /* border: 1px solid red; */
+}
+#hero-banner{
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(173, 172, 172);
+    font-size: 4vw;
+    /* border: 1px solid red; */
+    height: 20vh;
+}
+#hero-cta-text{
+    position: relative;
+    top: -3vh;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1vw;
+    color: rgb(133, 130, 130);
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
+}
+#hero-cta-button{
+    margin-top: 5vh;
+    max-width: 10vw;
+    padding: 5px 10px;
+    margin-left:calc(50% - 4vw);
+    font-size: 1vw;
+    background-color: rgb(60, 60, 190);
+    border: none;
+    border-radius: 6px;
+    color:white;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgb(0, 0, 0);
+    user-select: none;
+    transition: all 0.8s;
+}
+#hero-cta-button:hover{
+    color:black;
+    background-color: red;
+}
+#hero-cta-button:focus{
+    outline: 0;
+}
+
 /* END INDEX */

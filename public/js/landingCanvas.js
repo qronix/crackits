@@ -89,3 +89,4 @@ function animate(){
     landCanvas.update();
     requestAnimationFrame(animate);
 }
+heroType("Crackits");
