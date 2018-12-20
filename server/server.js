@@ -12,10 +12,19 @@ const port = process.env.PORT || 3000;
 
 const registerRouter = require('./routes/register');
 const loginRouter    = require('./routes/login');
+const indexRouter    = require('./routes/index');
+
+const partialsDir    = './partials';
+
+hbs.registerPartials(partialsDir);
 
 var app = express();
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','hbs');
+
+app.use('/',indexRouter);
+app.use('/register',registerRouter);
+app.use('/login',loginRouter);
 
 var server = http.createServer(app);
 var io  = socketIO(server);

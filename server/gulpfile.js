@@ -10,7 +10,7 @@ const souremaps         = require('gulp-sourcemaps');
 const uglifyES          = require('gulp-uglify-es').default;
 const image             = require('gulp-image');
 const CSS_PATH          = '../public/css/**/*.css';
-const SCRIPTS_PATH      = '../public/scripts/**/*.js';
+const SCRIPTS_PATH      = '../public/js/*.js';
 const IMAGES_PATH       = '../public/img/**/*';
 const DIST_PATH         = '../public/dist';
 
@@ -49,8 +49,8 @@ gulp.task('connect',()=>{
 
 gulp.task('watch',()=>{
     console.log('Starting watch');
-    gulp.watch(CSS_PATH,gulp.series(['styles']));
     gulp.watch(SCRIPTS_PATH,gulp.series(['scripts']));
+    gulp.watch(CSS_PATH,gulp.series(['styles']));
 });
 
 gulp.task('gulp_nodemon',()=>{
@@ -62,6 +62,7 @@ gulp.task('gulp_nodemon',()=>{
 });
 gulp.task('sync',()=>{
     browserSync.init({
+        injectChanges:true,
         port:3002,
         proxy:'http://localhost:3000',
         ui:{port:3003},

@@ -2,5 +2,14 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    color:green;
+    font-size: 100%;
+    font-family: 'Major Mono Display', monospace;
+    overflow: hidden;
 }
+
+/* BEGIN INDEX */
+#landing-canvas{
+    background-color: black;
+    color: white;
+}
+/* END INDEX */
