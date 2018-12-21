@@ -40,6 +40,10 @@
     font-size: 4vw;
     /* border: 1px solid red; */
     height: 20vh;
+    animation: heroToTop;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 #hero-cta-text{
     position: relative;
@@ -73,4 +77,10 @@
     outline: 0;
 }
 
+@keyframes heroToTop{
+    to{
+        top:0;
+        left: 0;
+    }
+}
 /* END INDEX */
