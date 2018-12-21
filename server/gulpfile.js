@@ -10,7 +10,7 @@ const souremaps         = require('gulp-sourcemaps');
 const uglifyES          = require('gulp-uglify-es').default;
 const image             = require('gulp-image');
 const CSS_PATH          = '../public/css/**/*.css';
-const SCRIPTS_PATH      = '../public/js/*.js';
+const SCRIPTS_PATH      = '../public/js/**/*.js';
 const IMAGES_PATH       = '../public/img/**/*';
 const DIST_PATH         = '../public/dist';
 

@@ -1,0 +1,1 @@
+function loadHome(t,n){startAnimation("hero-content"),t.preventDefault()}function startAnimation(t){document.getElementById(t).style.animationPlayState="running"}function getPage(t){let n=void 0;axios.get(`/${t}`).then(t=>n=t).catch(t=>{})}

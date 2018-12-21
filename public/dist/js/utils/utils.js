@@ -1,0 +1,1 @@
+function isRealString(n){return"string"==typeof n&&n.length>0}

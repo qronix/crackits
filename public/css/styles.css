@@ -7,6 +7,37 @@
     overflow: hidden;
 }
 
+/*START Notification system*/
+#notificationPanel{
+    position: absolute;
+    z-index: 999;
+    left:50%;
+    margin-left:-20vw;
+    top:0;
+    text-align: center;
+    width: 40vw;
+    padding: 10px;
+    border: 1px solid white;
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+    color:white;
+}
+.notificationHidden{
+    visibility: hidden;
+}
+.errorMessage{
+    background-color: #ff6b6b;
+}
+
+.warningMessage{
+    background-color: #feca57;
+}
+
+.successMessage{
+    background-color: #1dd1a1;
+}
+/*END Notification system*/
+
+
 /* BEGIN INDEX */
 #landing-canvas{
     background-color: black;
@@ -22,6 +53,32 @@
     z-index: 10;
     background-color: black;
     opacity: 0.6;
+ 
+}
+
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes overlayOut{
+    from{
+        opacity: 0.6;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes overlayIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.6;
+    }
 }
 #hero-content{
     position: absolute;
@@ -32,6 +89,12 @@
     width: 100vw;
     height: 40vh;
     /* border: 1px solid red; */
+    animation-name: fadeOut;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
 }
 #hero-banner{
     margin: 0 auto;
@@ -40,10 +103,6 @@
     font-size: 4vw;
     /* border: 1px solid red; */
     height: 20vh;
-    animation: heroToTop;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
 }
 #hero-cta-text{
     position: relative;
@@ -55,7 +114,9 @@
     text-shadow: 1px 1px 2px rgb(255, 255, 255);
 }
 #hero-cta-button{
-    margin-top: 5vh;
+    /* position: relative;
+    top: 8vh; */
+    margin-top: 6vh;
     max-width: 10vw;
     padding: 5px 10px;
     margin-left:calc(50% - 4vw);
@@ -65,6 +126,7 @@
     border-radius: 6px;
     color:white;
     letter-spacing: 2px;
+    text-decoration: none;
     text-shadow: 1px 1px 4px rgb(0, 0, 0);
     user-select: none;
     transition: background-color 0.8s;
@@ -77,10 +139,4 @@
     outline: 0;
 }
 
-@keyframes heroToTop{
-    to{
-        top:0;
-        left: 0;
-    }
-}
 /* END INDEX */
