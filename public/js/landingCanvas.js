@@ -2,6 +2,9 @@ let canvas = document.getElementById('landing-canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// let canvas = undefined;
+
+
 var ctx = canvas.getContext('2d');
 
 class LandingCanvas{
@@ -71,8 +74,20 @@ class LandingCanvas{
 }
 
 
-
 let landCanvas = undefined;
+// function initCanvas(){
+//     canvas = document.getElementById('landing-canvas');
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+//     ctx = canvas.getContext('2d');
+//     landCanvas = new LandingCanvas(canvas,ctx);
+//     window.addEventListener('resize',()=>{
+//     landCanvas = new LandingCanvas(canvas,ctx);
+//         landCanvas.setDimensions(innerWidth,innerHeight);
+//     });
+//     animate();
+// }
+
 window.onload = ()=>{
     landCanvas = new LandingCanvas(canvas,ctx);
     window.addEventListener('resize',()=>{

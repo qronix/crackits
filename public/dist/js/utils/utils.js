@@ -1,1 +1,1 @@
-function isRealString(n){return"string"==typeof n&&n.length>0}
+function isRealString(e){return"string"==typeof e&&e.length>0}function applyClassToEle(e,t){document.getElementById(e).classList.add(t)}function removeClassFromEle(e,t){document.getElementById(e).classList.remove(t)}function startAnimation(e){document.getElementById(e).style.animationPlayState="running"}function pushHTMLDataToEle(e,t){document.getElementById(t).innerHTML=e}function removeEleFromDOM(e){document.getElementById(e).remove()}

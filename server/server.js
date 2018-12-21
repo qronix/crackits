@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 const registerRouter = require('./routes/register');
 const loginRouter    = require('./routes/login');
 const indexRouter    = require('./routes/index');
+const homeRouter     = require('./routes/home');
 
 const partialsDir    = __dirname+'/partials';
 
@@ -23,6 +24,7 @@ app.set('views',path.join(__dirname,'views'));
 app.set('view engine','hbs');
 
 app.use('/',indexRouter);
+app.use('/home',homeRouter);
 app.use('/register',registerRouter);
 app.use('/login',loginRouter);
 

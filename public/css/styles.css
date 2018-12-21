@@ -52,7 +52,6 @@
     height: 100vh;
     z-index: 10;
     background-color: black;
-    opacity: 0.6;
  
 }
 
@@ -138,5 +137,25 @@
 #hero-cta-button:focus{
     outline: 0;
 }
-
+.homeOverlay{
+    opacity: 0.6;
+}
+.nonDistractOverlay{
+    opacity: 0.9;
+}
 /* END INDEX */
+
+/* START CONTENT PANEL */
+#content-panel{
+    color: white;
+    font-size: 4vw;
+}
+.contentPanelShown{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+/* END CONTENT PANEL */

@@ -1,13 +1,19 @@
 var originalText = [];
+var idTracker = [];
+var running = true;
+
 async function heroType(string){
     let stringArr = string.split('');
     originalText = stringArr;
-
-    for(char of stringArr){
-        await autoType(char);
+    try{
+        for(char of stringArr){
+            await autoType(char);
+        }
+        updateText();
+        resetText();
+    }catch{
+        console.log('Hero Typing Stopped');
     }
-    updateText();
-    resetText();
 }
 
 function autoType(char){
@@ -23,9 +29,9 @@ function autoType(char){
 }
 
 function updateText(){
-    let target = document.getElementById('hero-banner');
+    // let target = document.getElementById('hero-banner');
     
-    setInterval(function(){
+    let id = setInterval(function(){
         let decisionResult = randomChoice();
         if(decisionResult){
             let target = document.getElementById('hero-banner');
@@ -37,7 +43,11 @@ function updateText(){
             let newText = targetTextArr.join('').trim();
             setText(newText);
         }
+        if(!running){
+            clearInterval(id);
+        }
     },200);
+    trackThisId('interval',id);
 }
 
 function setText(newText){
@@ -48,7 +58,7 @@ function resetText(targetIndex,previousChar){
     let currentText = target.innerText.split('');
     let newText = [];
 
-    setInterval(()=>{
+    let id = setInterval(()=>{
         for(let i=0; i<currentText.length; i++){
             if(randomChoice()){
                 newText[i] = originalText[i];
@@ -57,7 +67,20 @@ function resetText(targetIndex,previousChar){
             }
         }
         setText(newText.join(''));
+        if(!running){clearInterval(id);}
     },400);
+    trackThisId('interval',id);
+}
+
+function trackThisId(type,id){
+    idTracker.push({
+        type,
+        id
+    });
+}
+
+function heroTypeStop(){
+    running = false;
 }
 
 function randomChoice(){
@@ -69,5 +92,4 @@ function randomChoice(){
     }else{
         return false;
     }
-    
 }
