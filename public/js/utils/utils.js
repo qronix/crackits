@@ -29,3 +29,8 @@ function pushHTMLDataToEle(data,targetName){
 function removeEleFromDOM(target){
     document.getElementById(target).remove();
 }
+
+function getCurrentRoute(){
+    let route = window.location.href.split('/');
+    return route[route.length-1];
+}

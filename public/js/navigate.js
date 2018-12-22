@@ -1,15 +1,21 @@
-async function loadHome(event,button){
-    heroTypeStop();
+async function navigate(event,button,route){
+    // heroTypeStop();
     try{
-        let response = await getPage('home');
+        let response = await getPage(route);
         console.dir(response);
-        if(response.status === 200){
+        console.log('getting route');
+        let location = getCurrentRoute();
+        console.log(location);
+        if(response.status === 200 && route === 'home' && location === ""){
             startAnimation('hero-content');
             removeClassFromEle('overlay-panel','homeOverlay');
             applyClassToEle('overlay-panel','nonDistractOverlay');
             pushHTMLDataToEle(response.data,'content-panel');
             applyClassToEle('content-panel','contentPanelShown');
             removeEleFromDOM('hero-content');
+            showNavBar();
+            let glitchTyper = new GlitchTyper("Crackits","home-nav-logo");
+            glitchTyper.init();
         }
     }
     catch{
@@ -18,8 +24,11 @@ async function loadHome(event,button){
     event.preventDefault();
 }
 
+function showNavBar(){
+    let target = document.getElementById('nav-bar');
+    target.setAttribute('hidden','false');
+}
 function getPage(name){
-
     return axios.get(`/${name}`)
     .then((res)=>{return res})
     .catch((err)=>{

@@ -128,7 +128,7 @@
     text-decoration: none;
     text-shadow: 1px 1px 4px rgb(0, 0, 0);
     user-select: none;
-    transition: background-color 0.8s;
+    transition: background-color,color 0.8s;
 }
 #hero-cta-button:hover{
     color:black;
@@ -159,3 +159,11 @@
     height: 100vh;
 }
 /* END CONTENT PANEL */
+
+/* START NAV BAR */
+
+/* END NAV BAR */
+
+/* START HOME PAGE */
+
+/* END HOME PAGE */
