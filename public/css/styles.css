@@ -4,9 +4,9 @@
     box-sizing: border-box;
     font-size: 100%;
     font-family: 'Major Mono Display', monospace;
-    /* overflow:hidden; */
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow:hidden;
+    /* scroll-behavior: smooth;
+    overflow-x: hidden; */
 }
 html{
     background-color:black; 
@@ -230,7 +230,10 @@ html{
     margin: 0 auto;
     /* width: 100vw; */
     height: 50vh;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
-
+#home-hero-content{
+    text-align: center;
+    padding-top: 40vh;
+}
 /* END HOME PAGE */

@@ -95,7 +95,7 @@ window.onload = ()=>{
         landCanvas.setDimensions(innerWidth,innerHeight);
     });
     animate();
-    var glitchTyper = new GlitchTyper("Crackits is great","hero-banner",false);
+    var glitchTyper = new GlitchTyper("Crackits","hero-banner",true);
     glitchTyper.init();
 }
 

@@ -17,7 +17,7 @@ async function navigate(event,button,route){
             showNavBar();
             let glitchTyper_logo = new GlitchTyper("Crackits","home-nav-logo",false);
             glitchTyper_logo.init();
-            let glitchTyper_hero = new GlitchTyper("Open Alpha Coming Soon...","home-hero-content",true);
+            let glitchTyper_hero = new GlitchTyper("Closed Alpha Coming Soon...","home-hero-content",true);
             glitchTyper_hero.init();
         }
     }

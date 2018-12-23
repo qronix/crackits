@@ -4,10 +4,10 @@
 // var targetName = undefined;
 
 class GlitchTyper{
-    constructor(stringToType,targetEle,noglitch){
+    constructor(stringToType,targetEle,glitch){
         this.stringToType = stringToType;
         this.taretEle = targetEle;
-        this.noglitch = noglitch;
+        this.glitch = glitch;
         this.running = false;
         this.idTracker = [];
         this.newText = [];
@@ -19,7 +19,7 @@ class GlitchTyper{
             for(let character in this.originalText){
                 await this.autoType(this.originalText[character]);
             }
-            if(!this.noglitch){
+            if(this.glitch){
                 this.updateText();
                 this.resetText();
             }
