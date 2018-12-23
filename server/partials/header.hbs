@@ -14,14 +14,14 @@
     <div id='notificationPanel' class="notificationHidden"></div>
 </head>
 <body>
-    <nav id='nav-bar' hidden="hidden">
+    <nav id='nav-bar' class="hidden">
         <div id='home-nav-logo'></div>
         <ul id='nav-links'>
-            <li onclick="navigate(event,this,'play')">Play</li>
-            <li>Register</li>
-            <li>Forums</li>
-            <li>Media</li>
-            <li>About</li>
+            <a id='play-link' onclick="navigate(event,this,'play')">play</a>
+            <a id='register-link' onclick="navigate(event,this,'shop')">shop</a>
+            <a id='forums-link' onclick="navigate(event,this,'forums')">Forums</a>
+            <a id='media-link' onclick="navigate(event,this,'media')">Media</a>
+            <a id='about-link' onclick="navigate(event,this,'about')">About</a>
         </ul>
     </nav>
 

@@ -4,22 +4,25 @@
 // var targetName = undefined;
 
 class GlitchTyper{
-    constructor(stringToType,targetEle){
+    constructor(stringToType,targetEle,noglitch){
         this.stringToType = stringToType;
         this.taretEle = targetEle;
+        this.noglitch = noglitch;
         this.running = false;
         this.idTracker = [];
+        this.newText = [];
     }
     async init(){
         this.originalText = this.stringToType.split('');
         this.running = true;
-
         try{
             for(let character in this.originalText){
                 await this.autoType(this.originalText[character]);
             }
-            this.updateText();
-            this.resetText();
+            if(!this.noglitch){
+                this.updateText();
+                this.resetText();
+            }
         }catch{
             console.log('Hero Typing Stopped');
         }
@@ -29,7 +32,8 @@ class GlitchTyper{
             let id = setTimeout(function(){
                 clearInterval(id);
                 if(this.checkTargetExists()){
-                    document.getElementById(this.taretEle).innerText += char;
+                    this.newText.push(char);
+                    this.setText(this.newText.join(''));
                 }else{
                     return new Error('Target not found, stopping.');
                 }
@@ -38,6 +42,7 @@ class GlitchTyper{
         });
     }
     updateText(){
+        debugger;
         let id = setInterval(function(){
             let decisionResult = this.randomChoice();
             if(decisionResult){
@@ -47,8 +52,9 @@ class GlitchTyper{
                     let targetCharIndex = Math.floor(Math.random()*targetTextArr.length)-1;
                     let newChar = String.fromCharCode(Math.floor(Math.random()*93)+33);
                     targetTextArr[targetCharIndex] = newChar;
-                    let newText = targetTextArr.join('').trim();
-                    this.setText(newText);
+                    // this.newText = targetTextArr.join('');
+                    this.newText = targetTextArr;
+                    this.setText(this.newText);
                 }else{
                     return new Error('Target not found, stopping.');
                 }
@@ -60,32 +66,41 @@ class GlitchTyper{
         this.trackThisId('interval',id);
     }
     setText(newText){
+        if(Array.isArray(newText)){
+            newText = newText.join('');
+        }
         if(this.running && this.checkTargetExists()){
             document.getElementById(this.taretEle).innerText = newText;
         }
+        // this.newText = [];
     }
     resetText(){
         if(this.checkTargetExists()){
             let target = document.getElementById(this.taretEle);
             let currentText = target.innerText.split('');
-            let newText = [];
+            //  newText = [];
 
-            let id = setInterval(()=>{
+            let id = setInterval(function(){
                 for(let i=0; i<currentText.length; i++){
                     if(this.randomChoice()){
-                        newText[i] = this.originalText[i];
+                        // this.newText[i] = this.originalText[i];
+                        this.setNewText(i,this.originalText[i]);
                     }else{
-                        newText[i] = currentText[i];
+                        // this.newText[i] = currentText[i];
+                        this.setNewText(i,currentText[i]);
                     }
                 }
-                this.setText(newText.join(''));
+                this.setText(this.newText);
                 if(!this.running){clearInterval(id);}
-            },400);
+            }.bind(this),400);
             this.trackThisId('interval',id);
         }else{
             return new Error('Target not found, stopping.');
         }
     }
+    setNewText(index,char){
+        this.newText[index] = char;
+     }
     randomChoice(){
         const DECISION_MAX = 40;
         const DECISION_THRESHOLD = 30;

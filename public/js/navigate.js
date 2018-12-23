@@ -9,13 +9,16 @@ async function navigate(event,button,route){
         if(response.status === 200 && route === 'home' && location === ""){
             startAnimation('hero-content');
             removeClassFromEle('overlay-panel','homeOverlay');
+            removeClassFromEle('nav-bar','hidden');
             applyClassToEle('overlay-panel','nonDistractOverlay');
             pushHTMLDataToEle(response.data,'content-panel');
             applyClassToEle('content-panel','contentPanelShown');
             removeEleFromDOM('hero-content');
             showNavBar();
-            let glitchTyper = new GlitchTyper("Crackits","home-nav-logo");
-            glitchTyper.init();
+            let glitchTyper_logo = new GlitchTyper("Crackits","home-nav-logo",false);
+            glitchTyper_logo.init();
+            let glitchTyper_hero = new GlitchTyper("Open Alpha Coming Soon...","home-hero-content",true);
+            glitchTyper_hero.init();
         }
     }
     catch{
@@ -26,7 +29,7 @@ async function navigate(event,button,route){
 
 function showNavBar(){
     let target = document.getElementById('nav-bar');
-    target.setAttribute('hidden','false');
+    target.removeAttribute('hidden');
 }
 function getPage(name){
     return axios.get(`/${name}`)
