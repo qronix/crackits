@@ -15,7 +15,7 @@ async function navigate(event,button,route){
             applyClassToEle('content-panel','contentPanelShown');
             removeEleFromDOM('hero-content');
             showNavBar();
-            let glitchTyper_logo = new GlitchTyper("Crackits","home-nav-logo",false);
+            let glitchTyper_logo = new GlitchTyper("Crackits","home-nav-logo",true);
             glitchTyper_logo.init();
             let glitchTyper_hero = new GlitchTyper("Closed Alpha Coming Soon...","home-hero-content",true);
             glitchTyper_hero.init();
