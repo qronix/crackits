@@ -109,6 +109,7 @@ html{
     font-size: 4vw;
     /* border: 1px solid red; */
     height: 20vh;
+    user-select: none;
 }
 #hero-cta-text{
     position: relative;
@@ -118,6 +119,7 @@ html{
     font-size: 1vw;
     color: rgb(133, 130, 130);
     text-shadow: 1px 1px 2px rgb(255, 255, 255);
+    user-select: none;
 }
 #hero-cta-button{
     /* position: relative;
@@ -217,7 +219,7 @@ html{
     cursor: pointer;
     user-select: none;
     /* margin-right: 5px; */
-    transition: color 0.2s linear;
+    transition: color 400ms ease;
     letter-spacing: 2px;
 }
 #nav-links a:hover{
@@ -235,5 +237,6 @@ html{
 #home-hero-content{
     text-align: center;
     padding-top: 40vh;
+    user-select: none;
 }
 /* END HOME PAGE */

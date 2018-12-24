@@ -4,16 +4,20 @@
 // var targetName = undefined;
 
 class GlitchTyper{
-    constructor(stringToType,targetEle,glitch){
+    constructor(stringToType,targetEle,glitch,autoTyperDelayThreshold){
         this.stringToType = stringToType;
         this.taretEle = targetEle;
         this.glitch = glitch;
         this.running = false;
         this.idTracker = [];
         this.newText = [];
+        this.autoTyperDelayThreshold = autoTyperDelayThreshold;
     }
     async init(){
         this.originalText = this.stringToType.split('');
+        if(this.autoTyperDelayThreshold=== undefined){
+            this.autoTyperDelayThreshold = 100;
+        }
         this.running = true;
         try{
             for(let character in this.originalText){
@@ -38,7 +42,7 @@ class GlitchTyper{
                     return new Error('Target not found, stopping.');
                 }
                 res(true);
-            }.bind(this),Math.floor(Math.random()*400));
+            }.bind(this),Math.floor(Math.random()*this.autoTyperDelayThreshold));
         });
     }
     updateText(){

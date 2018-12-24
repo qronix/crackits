@@ -19,6 +19,8 @@ async function navigate(event,button,route){
             glitchTyper_logo.init();
             let glitchTyper_hero = new GlitchTyper("Closed Alpha Coming Soon...","home-hero-content",true);
             glitchTyper_hero.init();
+        }else{
+            pushHTMLDataToEle(response.data,'content-panel');
         }
     }
     catch{

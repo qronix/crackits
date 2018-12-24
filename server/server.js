@@ -14,6 +14,7 @@ const registerRouter = require('./routes/register');
 const loginRouter    = require('./routes/login');
 const indexRouter    = require('./routes/index');
 const homeRouter     = require('./routes/home');
+const playRouter     = require('./routes/play');
 
 const partialsDir    = __dirname+'/partials';
 
@@ -27,6 +28,7 @@ app.use('/',indexRouter);
 app.use('/home',homeRouter);
 app.use('/register',registerRouter);
 app.use('/login',loginRouter);
+app.use('/play',playRouter);
 
 var server = http.createServer(app);
 var io  = socketIO(server);
